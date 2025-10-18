@@ -1,4 +1,4 @@
-package problem;
+package problem.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;

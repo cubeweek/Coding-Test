@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class BJ10250 {
     public static void main(String[] args) throws IOException {
+        // 패턴화 -> 예외 검증 -> 일반화로 공식 도출하기.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int caseCnt = Integer.parseInt(br.readLine());
         String[] target = new String[caseCnt];
@@ -15,7 +16,9 @@ public class BJ10250 {
             int w = Integer.parseInt(st.nextToken());
             int n = Integer.parseInt(st.nextToken());
 
-            target[i] = (n % h) + String.format("%02d", n / h + 1);
+            int ans = n / h;
+            if (n % h != 0) ans++;
+            target[i] = (n % h == 0 ? h : n % h) + String.format("%02d", ans);
         }
 
         for (String s : target) System.out.println(s);

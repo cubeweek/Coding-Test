@@ -15,15 +15,17 @@ public class BJ11660 {
         int[] answer = new int[info[1]];
 
         for (int i=0; i<info[0]; i++) originTable[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(n -> Integer.parseInt(n)).toArray();
-        for (int x=0; x<info[0]; x++) {
-            for (int y=0; y<info[0]; y++) {
-                accTable[x+1][y+1] = originTable[x][y] + originTable[x][y];
+
+        for (int x=1; x<=info[0]; x++) {
+            for (int y=1; y<=info[0]; y++) {
+                accTable[x][y] = accTable[x][y-1] + accTable[x-1][y] - accTable[x-1][y-1] + originTable[x-1][y-1];
             }
         }
 
         for (int i=0; i<info[1]; i++) {
             int[] target = Arrays.stream(br.readLine().split(" ")).mapToInt(n -> Integer.parseInt(n)).toArray();
 
+            answer[i] = accTable[target[2]][target[3]] - accTable[target[0]-1][target[3]] - accTable[target[2]][target[1]-1] + accTable[target[0]-1][target[1]-1];
         }
 
         for (int a : answer) System.out.println(a);

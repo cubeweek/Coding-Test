@@ -1,6 +1,6 @@
 package problem.gold
 
-import java.lang.Math.abs
+import java.lang.StrictMath.abs
 
 fun main (args: Array<String>) {
     val nq = readln().toInt()
@@ -13,7 +13,7 @@ fun main (args: Array<String>) {
             if (board[i] == target) return true
 
             // 대각에 있어도 안됨!
-            if ((abs(board[i]) - abs(target)) == (abs(i) - abs(pos))) return true
+            if (abs(board[i] - target) == abs(i - pos)) return true
         }
         return false
     }

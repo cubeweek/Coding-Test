@@ -1,22 +1,15 @@
 package problem.silver
 
-import java.io.BufferedReader
-import java.io.InputStreamReader
-
 fun main(args: Array<String>) {
     val sugar = readln().toInt()
+    var answer = Int.MAX_VALUE
 
-//    var answer = -1
-//
-//    if (sugar % 5 == 0) answer = sugar / 5
-//    else {
-//        var (fiveCnt, threeCnt)
-//        var now
-//        while (fiveCnt * 5 < sugar) {
-//
-//        }
-//    }
-//
-//
-//    print(answer)
+    for (i in 0..sugar / 5 + 1) {
+        val calc = sugar - (5 * i)
+        if (calc < 0) break
+        else if (calc % 3 == 0) answer = minOf(answer, i + ((sugar - (5 * i)) / 3))
+    }
+
+
+    print(if (answer == Int.MAX_VALUE) -1 else answer)
 }

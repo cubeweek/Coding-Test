@@ -17,22 +17,15 @@ fun main(args: Array<String>) {
 
     var answer = Int.MAX_VALUE
 
-    fun checkBoard(x: Int, y: Int): BooleanArray {
-        val canFill = BooleanArray(6)
-        var stop = false
+    fun checkBoard(x: Int, y: Int, size: Int): Boolean {
+        if (x + size > 10 || y + size > 10) return false
 
-        for (i in 0..4) {
-            for (j in 0..i) {
-                if (board[x + i][y + j] == 0) {
-                    stop = true
-                    break
-                } else if (i == j) {
-                    canFill[i + 1] = true
-                }
+        for (i in 0 until size) {
+            for (j in 0 until size) {
+                if (board[x + i][y + j] == 0) return false
             }
-            if (stop) break
         }
-        return canFill
+        return true
     }
 
     fun attach(x: Int, y: Int, size: Int, chg: Int) {
@@ -44,18 +37,17 @@ fun main(args: Array<String>) {
     }
 
     fun attachPaper(xy: Int, cnt: Int) {
-        if (xy == 100 || answer < cnt) {
+        if (xy == 100 || answer <= cnt) {
             answer = minOf(answer, cnt)
             return
         }
 
-        val x = xy % 10
-        val y = xy / 10
+        val x = xy / 10
+        val y = xy % 10
 
         if (board[x][y] == 1) {
-            val checkBoard = checkBoard(x, y)
             for (i in 5 downTo 1) {
-                if (checkBoard[i] && stock[i] > 0) {
+                if (stock[i] > 0 && checkBoard(x, y, i)) {
                     --stock[i]
                     attach(x, y, i, 0)
                     attachPaper(xy + 1, cnt + 1)

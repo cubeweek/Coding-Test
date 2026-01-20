@@ -2,20 +2,47 @@ import os
 import re
 from collections import defaultdict
 
-ROOT = "src/problem/backjoon"
-START = "<!-- BACKJOON-AUTO-GENERATED:START -->"
-END = "<!-- BACKJOON-AUTO-GENERATED:END -->"
-
-# 정렬 우선순위(여기에 없는 tier도 출력은 됨)
+# ===== BOJ config =====
+ROOT_BOJ = "src/problem/backjoon"
+BOJ_START = "<!-- BAEKJOON-AUTO-GENERATED:START -->"
+BOJ_END = "<!-- BAEKJOON-AUTO-GENERATED:END -->"
 TIER_ORDER = {"bronze": 0, "silver": 1, "gold": 2, "platinum": 3, "diamond": 4, "ruby": 5}
+
+# ===== LeetCode config =====
+ROOT_LC = "src/problem/leetcode"
+LC_START = "<!-- LEETCODE-AUTO-GENERATED:START -->"
+LC_END = "<!-- LEETCODE-AUTO-GENERATED:END -->"
+LC_ORDER = {"easy": 0, "medium": 1, "hard": 2}
+
 EXTS = (".kt", ".java")
+
 
 def tier_sort_key(t: str):
     return (TIER_ORDER.get(t.lower(), 999), t.lower())
 
-def list_files(root: str):
+
+def lc_sort_key(d: str):
+    return (LC_ORDER.get(d.lower(), 999), d.lower())
+
+
+def pascal_to_kebab(name: str) -> str:
+    # TwoSum -> two-sum
+    # AddTwoNumbers -> add-two-numbers
+    return re.sub(r"([a-z0-9])([A-Z])", r"\1-\2", name).lower()
+
+
+def replace_block(readme: str, start: str, end: str, block: str):
+    if start not in readme or end not in readme:
+        raise SystemExit(f"README.md에 블록 마커가 없습니다: {start} ~ {end}")
+    pre = readme.split(start)[0] + start + "\n"
+    post = "\n" + end + readme.split(end)[1]
+    return pre + block + post
+
+
+# ---------------- BOJ ----------------
+def list_boj_files():
     out = []
-    for dirpath, _, filenames in os.walk(root):
+    for dirpath, _, filenames in os.walk(ROOT_BOJ):
         parts = dirpath.split(os.sep)
         if any(p.startswith(".") for p in parts):
             continue
@@ -24,27 +51,21 @@ def list_files(root: str):
                 out.append(os.path.join(dirpath, fn).replace("\\", "/"))
     return sorted(out)
 
-def parse_path(path: str):
+
+def parse_boj_path(path: str):
     # src/problem/backjoon/{tier}/{group}/BJ{num}.{ext}
-    m = re.match(rf"^{re.escape(ROOT)}/([^/]+)/([^/]+)/BJ(\d+)\.(kt|java)$", path)
+    m = re.match(rf"^{re.escape(ROOT_BOJ)}/([^/]+)/([^/]+)/BJ(\d+)\.(kt|java)$", path)
     if not m:
         return None
     tier, group, num, ext = m.group(1), m.group(2), int(m.group(3)), m.group(4)
     return tier, group, num, ext
 
-def replace_block(readme: str, block: str):
-    if START not in readme or END not in readme:
-        raise SystemExit("README.md에 AUTO-GENERATED 블록이 없습니다.")
-    pre = readme.split(START)[0] + START + "\n"
-    post = "\n" + END + readme.split(END)[1]
-    return pre + block + post
 
-def build_block(paths):
-    # tier -> group -> num -> {"kt": path, "java": path}
-    tiers = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+def build_boj_block(paths):
+    tiers = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))  # tier -> group -> num -> {ext:path}
 
     for p in paths:
-        meta = parse_path(p)
+        meta = parse_boj_path(p)
         if meta is None:
             continue
         tier, group, num, ext = meta
@@ -53,7 +74,7 @@ def build_block(paths):
     lines = []
     for tier in sorted(tiers.keys(), key=tier_sort_key):
         lines.append("<details>")
-        lines.append(f"<summary>{tier.upper()}</summary>")
+        lines.append(f"<summary><strong>{tier.upper()}</strong></summary>")
         lines.append("")
 
         for group in sorted(tiers[tier].keys(), key=lambda g: g.lower()):
@@ -76,17 +97,79 @@ def build_block(paths):
 
     return "\n".join(lines).rstrip() + "\n"
 
-def main():
-    paths = list_files(ROOT)
-    block = build_block(paths)
 
+# ---------------- LeetCode ----------------
+def list_lc_files():
+    out = []
+    for dirpath, _, filenames in os.walk(ROOT_LC):
+        parts = dirpath.split(os.sep)
+        if any(p.startswith(".") for p in parts):
+            continue
+        for fn in filenames:
+            if fn.endswith(EXTS):
+                out.append(os.path.join(dirpath, fn).replace("\\", "/"))
+    return sorted(out)
+
+
+def parse_lc_path(path: str):
+    # src/problem/leetcode/{difficulty}/{ProblemName}.{ext}
+    m = re.match(rf"^{re.escape(ROOT_LC)}/([^/]+)/([^/]+)\.(kt|java)$", path)
+    if not m:
+        return None
+    diff, name, ext = m.group(1), m.group(2), m.group(3)
+    return diff, name, ext
+
+
+def build_lc_block(paths):
+    # diff -> name -> {ext:path}
+    diffs = defaultdict(lambda: defaultdict(dict))
+
+    for p in paths:
+        meta = parse_lc_path(p)
+        if meta is None:
+            continue
+        diff, name, ext = meta
+        diffs[diff][name][ext] = p
+
+    lines = []
+    lines.append("<details>")
+    lines.append("<summary><strong>LEETCODE</strong></summary>")
+    lines.append("")
+
+    for diff in sorted(diffs.keys(), key=lc_sort_key):
+        lines.append(f"**{diff.upper()}**  ")
+
+        items = []
+        for name in sorted(diffs[diff].keys(), key=lambda s: s.lower()):
+            cand = diffs[diff][name]
+            p = cand.get("kt") or cand.get("java")  # kt 우선
+            slug = pascal_to_kebab(name)
+            url = f"https://leetcode.com/problems/{slug}/"
+            items.append(f"<sub>[{name}]({url}).[src]({p})</sub>")
+
+        lines.append(" ".join(items))
+        lines.append("")
+
+    lines.append("</details>")
+    lines.append("")
+
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def main():
     with open("README.md", "r", encoding="utf-8") as f:
         readme = f.read()
 
-    updated = replace_block(readme, block)
-    if updated != readme:
+    boj_block = build_boj_block(list_boj_files())
+    readme2 = replace_block(readme, BOJ_START, BOJ_END, boj_block)
+
+    lc_block = build_lc_block(list_lc_files())
+    readme3 = replace_block(readme2, LC_START, LC_END, lc_block)
+
+    if readme3 != readme:
         with open("README.md", "w", encoding="utf-8") as f:
-            f.write(updated)
+            f.write(readme3)
+
 
 if __name__ == "__main__":
     main()

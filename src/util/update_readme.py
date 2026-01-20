@@ -3,8 +3,8 @@ import re
 from collections import defaultdict
 
 ROOT = "src/problem/backjoon"
-START = "<!-- AUTO-GENERATED:START -->"
-END = "<!-- AUTO-GENERATED:END -->"
+START = "<!-- BACKJOON-AUTO-GENERATED:START -->"
+END = "<!-- BACKJOON-AUTO-GENERATED:END -->"
 
 # 정렬 우선순위(여기에 없는 tier도 출력은 됨)
 TIER_ORDER = {"bronze": 0, "silver": 1, "gold": 2, "platinum": 3, "diamond": 4, "ruby": 5}
@@ -66,7 +66,7 @@ def build_block(paths):
                 if not p:
                     continue
                 problem = f"https://www.acmicpc.net/problem/{num}"
-                items.append(f"<sub>[{num}]({problem})</sub>.<small>[src]({p})</small>")
+                items.append(f"<sub>[{num}]({problem}.<small>[src]({p})</small>)</sub>")
 
             lines.append(" ".join(items))
             lines.append("")

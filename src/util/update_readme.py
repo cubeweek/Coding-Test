@@ -6,8 +6,12 @@ ROOT = "src/problem/backjoon"
 START = "<!-- AUTO-GENERATED:START -->"
 END = "<!-- AUTO-GENERATED:END -->"
 
+# 정렬 우선순위(여기에 없는 tier도 출력은 됨)
 TIER_ORDER = {"bronze": 0, "silver": 1, "gold": 2, "platinum": 3, "diamond": 4, "ruby": 5}
 EXTS = (".kt", ".java")
+
+def tier_sort_key(t: str):
+    return (TIER_ORDER.get(t.lower(), 999), t.lower())
 
 def list_files(root: str):
     out = []
@@ -21,7 +25,7 @@ def list_files(root: str):
     return sorted(out)
 
 def parse_path(path: str):
-    # src/problem/backjoon/gold/g1/BJ1300.kt
+    # src/problem/backjoon/{tier}/{group}/BJ{num}.{ext}
     m = re.match(rf"^{re.escape(ROOT)}/([^/]+)/([^/]+)/BJ(\d+)\.(kt|java)$", path)
     if not m:
         return None
@@ -47,23 +51,22 @@ def build_block(paths):
         tiers[tier][group][num][ext] = p
 
     lines = []
-    for tier in sorted(tiers.keys(), key=lambda t: (TIER_ORDER.get(t, 999), t)):
+    for tier in sorted(tiers.keys(), key=tier_sort_key):
         lines.append("<details>")
         lines.append(f"<summary>{tier.upper()}</summary>")
         lines.append("")
 
-        for group in sorted(tiers[tier].keys()):
+        for group in sorted(tiers[tier].keys(), key=lambda g: g.lower()):
             lines.append(f"**{group.upper()}**  ")
 
             items = []
             for num in sorted(tiers[tier][group].keys()):
                 cand = tiers[tier][group][num]
-                # kt 우선, 없으면 java
-                p = cand.get("kt") or cand.get("java")
+                p = cand.get("kt") or cand.get("java")  # kt 우선
                 if not p:
                     continue
                 problem = f"https://www.acmicpc.net/problem/{num}"
-                items.append(f"[{num}]({problem}).[src]({p})")
+                items.append(f"[{num}]({problem}).<sub>[src]({p})</sub>")
 
             lines.append(" ".join(items))
             lines.append("")

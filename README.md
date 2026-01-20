@@ -18,7 +18,7 @@
 <summary>BRONZE</summary>
 
 **B1**  
-<sub>[1259](https://www.acmicpc.net/problem/1259).[src](src/problem/baekjoon/bronze/b1/BJ1259.kt)</sub> <sub>[1546](https://www.acmicpc.net/problem/1546).[src](src/problem/baekjoon/bronze/b1/BJ1546.java)</sub> <sub>[2163](https://www.acmicpc.net/problem/2163).[src](src/problem/baekjoon/bronze/b1/BJ2163.kt)</sub> <sub>[2609](https://www.acmicpc.net/problem/2609).[src](src/problem/baekjoon/bronze/b1/BJ2609.kt)</sub> <sub>[2775](https://www.acmicpc.net/problem/2775).[src](src/problem/baekjoon/bronze/b1/BJ2775.kt)</sub> <sub>[2869](https://www.acmicpc.net/problem/2869).[src](src/problem/baekjoon/bronze/b1/BJ2869.kt)</sub> <sub>[2999](https://www.acmicpc.net/problem/2999).[src](src/problem/baekjoon/bronze/b1/BJ2999.kt)</sub> <sub>[3985](https://www.acmicpc.net/problem/3985).[src](src/problem/baekjoon/bronze/b1/BJ3985.kt)</sub> <sub>[8595](https://www.acmicpc.net/problem/8595).[src](src/problem/baekjoon/bronze/b1/BJ8595.kt)</sub> <sub>[10989](https://www.acmicpc.net/problem/10989).[src](src/problem/baekjoon/bronze/b1/BJ10989.kt)</sub> <sub>[11050](https://www.acmicpc.net/problem/11050).[src](src/problem/baekjoon/bronze/b1/BJ11050.kt)</sub> <sub>[14626](https://www.acmicpc.net/problem/14626).[src](src/problem/baekjoon/bronze/b1/BJ14626.kt)</sub> <sub>[16020](https://www.acmicpc.net/problem/16020).[src](src/problem/baekjoon/bronze/b1/BJ16020.kt)</sub> <sub>[16189](https://www.acmicpc.net/problem/16189).[src](src/problem/baekjoon/bronze/b1/BJ16189.kt)</sub> <sub>[24052](https://www.acmicpc.net/problem/24052).[src](src/problem/baekjoon/bronze/b1/BJ24052.kt)</sub> <sub>[28702](https://www.acmicpc.net/problem/28702).[src](src/problem/baekjoon/bronze/b1/BJ28702.kt)</sub>
+<sub>[1259](https://www.acmicpc.net/problem/1259).[src](src/problem/baekjoon/bronze/BJ1259.kt)</sub> <sub>[1546](https://www.acmicpc.net/problem/1546).[src](src/problem/baekjoon/bronze/b1/BJ1546.java)</sub> <sub>[2163](https://www.acmicpc.net/problem/2163).[src](src/problem/baekjoon/bronze/b1/BJ2163.kt)</sub> <sub>[2609](https://www.acmicpc.net/problem/2609).[src](src/problem/baekjoon/bronze/b1/BJ2609.kt)</sub> <sub>[2775](https://www.acmicpc.net/problem/2775).[src](src/problem/baekjoon/bronze/b1/BJ2775.kt)</sub> <sub>[2869](https://www.acmicpc.net/problem/2869).[src](src/problem/baekjoon/bronze/b1/BJ2869.kt)</sub> <sub>[2999](https://www.acmicpc.net/problem/2999).[src](src/problem/baekjoon/bronze/b1/BJ2999.kt)</sub> <sub>[3985](https://www.acmicpc.net/problem/3985).[src](src/problem/baekjoon/bronze/b1/BJ3985.kt)</sub> <sub>[8595](https://www.acmicpc.net/problem/8595).[src](src/problem/baekjoon/bronze/b1/BJ8595.kt)</sub> <sub>[10989](https://www.acmicpc.net/problem/10989).[src](src/problem/baekjoon/bronze/b1/BJ10989.kt)</sub> <sub>[11050](https://www.acmicpc.net/problem/11050).[src](src/problem/baekjoon/bronze/b1/BJ11050.kt)</sub> <sub>[14626](https://www.acmicpc.net/problem/14626).[src](src/problem/baekjoon/bronze/b1/BJ14626.kt)</sub> <sub>[16020](https://www.acmicpc.net/problem/16020).[src](src/problem/baekjoon/bronze/b1/BJ16020.kt)</sub> <sub>[16189](https://www.acmicpc.net/problem/16189).[src](src/problem/baekjoon/bronze/b1/BJ16189.kt)</sub> <sub>[24052](https://www.acmicpc.net/problem/24052).[src](src/problem/baekjoon/bronze/b1/BJ24052.kt)</sub> <sub>[28702](https://www.acmicpc.net/problem/28702).[src](src/problem/baekjoon/bronze/b1/BJ28702.kt)</sub>
 
 **B2**  
 <sub>[1152](https://www.acmicpc.net/problem/1152).[src](src/problem/baekjoon/bronze/b2/BJ1152.java)</sub> <sub>[1978](https://www.acmicpc.net/problem/1978).[src](src/problem/baekjoon/bronze/b2/BJ1978.kt)</sub> <sub>[2231](https://www.acmicpc.net/problem/2231).[src](src/problem/baekjoon/bronze/b2/BJ2231.kt)</sub> <sub>[2292](https://www.acmicpc.net/problem/2292).[src](src/problem/baekjoon/bronze/b2/BJ2292.kt)</sub> <sub>[2577](https://www.acmicpc.net/problem/2577).[src](src/problem/baekjoon/bronze/b2/BJ2577.java)</sub> <sub>[2675](https://www.acmicpc.net/problem/2675).[src](src/problem/baekjoon/bronze/b2/BJ2675.java)</sub> <sub>[2750](https://www.acmicpc.net/problem/2750).[src](src/problem/baekjoon/bronze/b2/BJ2750.java)</sub> <sub>[2798](https://www.acmicpc.net/problem/2798).[src](src/problem/baekjoon/bronze/b2/BJ2798.kt)</sub> <sub>[2920](https://www.acmicpc.net/problem/2920).[src](src/problem/baekjoon/bronze/b2/BJ2920.java)</sub> <sub>[2979](https://www.acmicpc.net/problem/2979).[src](src/problem/baekjoon/bronze/b2/BJ2979.kt)</sub> <sub>[3052](https://www.acmicpc.net/problem/3052).[src](src/problem/baekjoon/bronze/b2/BJ3052.java)</sub> <sub>[3778](https://www.acmicpc.net/problem/3778).[src](src/problem/baekjoon/bronze/b2/BJ3778.kt)</sub> <sub>[5698](https://www.acmicpc.net/problem/5698).[src](src/problem/baekjoon/bronze/b2/BJ5698.kt)</sub> <sub>[6040](https://www.acmicpc.net/problem/6040).[src](src/problem/baekjoon/bronze/b2/BJ6040.kt)</sub> <sub>[6679](https://www.acmicpc.net/problem/6679).[src](src/problem/baekjoon/bronze/b2/BJ6679.java)</sub> <sub>[7600](https://www.acmicpc.net/problem/7600).[src](src/problem/baekjoon/bronze/b2/BJ7600.java)</sub> <sub>[8949](https://www.acmicpc.net/problem/8949).[src](src/problem/baekjoon/bronze/b2/BJ8949.kt)</sub> <sub>[8958](https://www.acmicpc.net/problem/8958).[src](src/problem/baekjoon/bronze/b2/BJ8958.java)</sub> <sub>[10809](https://www.acmicpc.net/problem/10809).[src](src/problem/baekjoon/bronze/b2/BJ10809.java)</sub> <sub>[10870](https://www.acmicpc.net/problem/10870).[src](src/problem/baekjoon/bronze/b2/BJ10870.kt)</sub> <sub>[15829](https://www.acmicpc.net/problem/15829).[src](src/problem/baekjoon/bronze/b2/BJ15829.kt)</sub> <sub>[16770](https://www.acmicpc.net/problem/16770).[src](src/problem/baekjoon/bronze/b2/BJ16770.kt)</sub>
@@ -101,22 +101,42 @@
 관련 유틸들은 모두 Python 기반으로 만들어져 사용하시려면 Python 및 추가 라이브러리들의 설치가 필요합니다.
 
 <details>
-<summary><strong>Baekjoon 예제 자동 채점(Kotlin ONLY!)</strong></summary>
+<summary>백준/LeetCode 난이도 별 폴더 자동 정리</summary>
+문제 번호/명으로 풀이 파일은 만들고(이건 필수) 다 풀었는데, 굳이 난이도 분류까지 한땀한땀 손으로 해야 할까요?<br>
+알아서 난이도에 맞는 “최종 폴더(leaf)”로 알아서 이동시키는 정리 스크립트입니다.
+
+#### Script: [`move_by_tier.py`](src/util/move_by_tier.py)
+#### What it does
+- Baekjoon (BOJ)
+  - `src/problem/backjoon` 하위의 `.kt/.java` 파일을 스캔합니다.
+  - 파일명이 `BJ1300.kt`, `BOJ1300.java` 같은 형태일 때 문제 번호를 추출합니다.
+  - solved.ac에서 문제 난이도(level)를 조회한 뒤 `bronze/b1`, `gold/g3` 같은 상세 폴더로 이동합니다.
+  - 이미 `backjoon/{tier}/{b1~r5}` “leaf 폴더” 안에 있는 파일은 건드리지 않습니다.
+- LeetCode
+  - `src/problem/leetcode` 하위의 `.kt/.java` 파일을 스캔합니다.
+  - 이미 `leetcode/{easy|medium|hard}` “leaf 폴더” 안에 있는 파일은 건드리지 않습니다.
+  - leaf 밖에 있는 파일은 파일명(PascalCase)을 slug(kebab-case)로 변환한 뒤 LeetCode GraphQL로 difficulty를 조회합니다.
+  - difficulty 조회에 성공하면 해당 난이도 폴더(`easy/medium/hard`)로 이동합니다.
+  - difficulty 조회에 실패하면 파일을 **그대로 두고** 로그만 출력합니다. (로컬 실행 기준)
+
+#### Usage
+- 터미널에서 사용 (레포 최상위에서 실행)
+  ```bash
+  python3 src/util/move_by_tier.py
+  ```
+</details>
+
+<details>
+<summary>Baekjoon 예제 자동 채점(Kotlin ONLY!)</summary>
 한땀 한땀 실행-예제를 입력하던 불편함을 딸-깍 한 번으로 해결하기 위해<br>
 백준 문제 페이지의 예제 입력/출력을 자동으로 가져와(재시도부터는 캐시 사용) 로컬에서 Kotlin 풀이를 컴파일/실행하고 결과를 비교합니다.
 
-- Script: `autotest_baekjoon.py`
-  - What it does:
-      - BOJ 문제 페이지에서 sample input/output을 수집합니다. (Selenium 사용)
-      - 수집한 예제는 `.boj_cache/{problemId}.json`에 캐시합니다.
-      - `src/problem/baekjoon/**/BJ{problemId}.kt` 파일을 찾아 `kotlinc`로 컴파일 후 실행합니다.
-      - 각 케이스별로 출력이 일치하는지 확인하고, 불일치 시 Expected/Actual을 출력합니다.
-
-#### Requirements
-- Python 3
-  - Google Chrome (headless)
-  - `selenium`, `BeautifulSoup`등의 라이브러리가 없는 경우 설치 필요
-
+#### Script:  [`autotest_baekjoon.py`](src/util/autotest_baekjoon.py)
+#### What it does:
+  - BOJ 문제 페이지에서 sample input/output을 수집합니다. (Selenium 사용)
+  - 수집한 예제는 `.boj_cache/{problemId}.json`에 캐시합니다.
+  - `src/problem/baekjoon/**/BJ{problemId}.kt` 파일을 찾아 `kotlinc`로 컴파일 후 실행합니다.
+  - 각 케이스별로 출력이 일치하는지 확인하고, 불일치 시 Expected/Actual을 출력합니다.
 #### Usage
 - 인텔리제이 External Tools에 등록하여 사용
 
@@ -126,10 +146,10 @@
 - 터미널에서 사용할 경우(레포 최상위에서 실행)
   ```bash
   # 사용방법1 : BJ1300.kt를 찾아서 예제 케이스로 테스트
-  python3 ./src/util/autotest_baekjoon.py BJ1300
+  python3 /src/util/autotest_baekjoon.py BJ1300
   ```
   ```bash
   # 사용방법2 : 생성된 백준 예시 캐시 파일을 모두 삭제하고 싶은 경우
-  python3 ./src/util/autotest_baekjoon.py clear
+  python3 /src/util/autotest_baekjoon.py clear
   ```
 </details>

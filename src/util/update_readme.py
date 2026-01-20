@@ -74,7 +74,7 @@ def build_boj_block(paths):
     lines = []
     for tier in sorted(tiers.keys(), key=tier_sort_key):
         lines.append("<details>")
-        lines.append(f"<summary><strong>{tier.upper()}</strong></summary>")
+        lines.append(f"<summary>{tier.upper()}</summary>")
         lines.append("")
 
         for group in sorted(tiers[tier].keys(), key=lambda g: g.lower()):
@@ -133,7 +133,7 @@ def build_lc_block(paths):
 
     lines = []
     lines.append("<details>")
-    lines.append("<summary><strong>LEETCODE</strong></summary>")
+    lines.append("<summary>{tier.upper()}</summary>")
     lines.append("")
 
     for diff in sorted(diffs.keys(), key=lc_sort_key):

@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze
+package problem.baekjoon.bronze.b3
 
 fun main(args: Array<String>) {
     val brokenKeyboard = readln()

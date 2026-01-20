@@ -3,7 +3,7 @@ import re
 from collections import defaultdict
 
 # ===== BOJ config =====
-ROOT_BOJ = "src/problem/backjoon"
+ROOT_BOJ = "src/problem/baekjoon"
 BOJ_START = "<!-- BAEKJOON-AUTO-GENERATED:START -->"
 BOJ_END = "<!-- BAEKJOON-AUTO-GENERATED:END -->"
 TIER_ORDER = {"bronze": 0, "silver": 1, "gold": 2, "platinum": 3, "diamond": 4, "ruby": 5}

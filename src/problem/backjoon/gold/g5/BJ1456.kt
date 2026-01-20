@@ -1,4 +1,4 @@
-package problem.backjoon.gold
+package problem.backjoon.gold.g5
 
 import kotlin.math.sqrt
 

@@ -1,4 +1,4 @@
-package problem.backjoon.platinum
+package problem.backjoon.platinum.p5
 
 fun main() {
     val br = System.`in`.bufferedReader()

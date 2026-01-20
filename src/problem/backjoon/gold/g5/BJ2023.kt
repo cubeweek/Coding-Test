@@ -1,4 +1,4 @@
-package problem.backjoon.gold
+package problem.backjoon.gold.g5
 
 import java.lang.StringBuilder
 import kotlin.math.sqrt
@@ -23,7 +23,8 @@ fun findPrime(num: Int, digits: Int) {
     }
     for (i in 1..9 step 2) {
         if (!(digits > 1 && i == 5)
-            && isPrime(num * 10 + i)) findPrime(num * 10 + i, digits + 1)
+            && isPrime(num * 10 + i)
+        ) findPrime(num * 10 + i, digits + 1)
     }
 }
 

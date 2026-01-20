@@ -1,4 +1,4 @@
-package problem.backjoon.gold
+package problem.backjoon.gold.g4
 
 fun main (args: Array<String>) {
     val nq = readln().toInt()

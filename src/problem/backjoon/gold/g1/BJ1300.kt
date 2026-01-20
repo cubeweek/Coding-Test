@@ -1,4 +1,4 @@
-package problem.backjoon.gold
+package problem.backjoon.gold.g1
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

@@ -1,4 +1,4 @@
-package problem.backjoon.gold
+package problem.backjoon.gold.g1
 
 fun main(args: Array<String>) {
     val (min, max) = readln().split(" ").map { it.toLong() }

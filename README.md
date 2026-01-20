@@ -113,7 +113,7 @@
 #### Usage
 - 인텔리제이 External Tools에 등록하여 사용
 
-  [<img src="./resources/setting_auto_test_baekjoon.png" width="450" />](https://raw.githubusercontent.com/cubeweek/Coding-Test/main/resources/setting_autotest_baekjoon.png)
+  [<img src="./resources/setting_autotest_baekjoon.png" width="450" />](https://raw.githubusercontent.com/cubeweek/Coding-Test/main/resources/setting_autotest_baekjoon.png)
 
 
 - 터미널에서 사용할 경우(레포 최상위에서 실행)

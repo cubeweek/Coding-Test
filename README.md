@@ -14,10 +14,26 @@
 
 ### Baekjoon - Solved Index
 <!-- BAEKJOON-AUTO-GENERATED:START -->
+<details>
+<summary><strong>BRONZE</strong></summary>
+
+**B5**  
+<sub>[2475](https://www.acmicpc.net/problem/2475).[src](src/problem/backjoon/bronze/b5/BJ2475.java)</sub>
+
+</details>
+
 <!-- BAEKJOON-AUTO-GENERATED:END -->
 
 ### LeetCode - Solved Index
 <!-- LEETCODE-AUTO-GENERATED:START -->
+<details>
+<summary><strong>LEETCODE</strong></summary>
+
+**EASY**  
+<sub>[PlusOne](https://leetcode.com/problems/plus-one/).[src](src/problem/leetcode/easy/PlusOne.kt)</sub>
+
+</details>
+
 <!-- LEETCODE-AUTO-GENERATED:END -->
 
 

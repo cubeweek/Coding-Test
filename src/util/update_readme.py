@@ -1,7 +1,7 @@
 import os
 import re
 from collections import defaultdict
-
+import json
 # ===== BOJ config =====
 ROOT_BOJ = "src/problem/baekjoon"
 BOJ_START = "<!-- BAEKJOON-AUTO-GENERATED:START -->"
@@ -13,6 +13,7 @@ ROOT_LC = "src/problem/leetcode"
 LC_START = "<!-- LEETCODE-AUTO-GENERATED:START -->"
 LC_END = "<!-- LEETCODE-AUTO-GENERATED:END -->"
 LC_ORDER = {"easy": 0, "medium": 1, "hard": 2}
+OVERRIDE_LC = "src/settings/leetcode_slug_override.json"
 
 EXTS = (".kt", ".java")
 
@@ -119,6 +120,15 @@ def parse_lc_path(path: str):
     diff, name, ext = m.group(1), m.group(2), m.group(3)
     return diff, name, ext
 
+def load_lc_override():
+    if not os.path.exists(OVERRIDE_LC):
+        return {}
+    try:
+        with open(OVERRIDE_LC, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
 
 def build_lc_block(paths):
     # diff -> name -> {ext:path}
@@ -131,30 +141,33 @@ def build_lc_block(paths):
         diff, name, ext = meta
         diffs[diff][name][ext] = p
 
-    lines = []
-    lines.append("<details>")
-    lines.append("<summary>{tier.upper()}</summary>")
-    lines.append("")
+    override = load_lc_override()
 
-    for diff in sorted(diffs.keys(), key=lc_sort_key):
-        lines.append(f"**{diff.upper()}**  ")
+    lines = []
+    # EASY / MEDIUM / HARD를 BOJ 티어처럼 최상위로
+    for diff in ["easy", "medium", "hard"]:
+        if diff not in diffs:
+            continue
+
+        lines.append("<details>")
+        lines.append(f"<summary>{diff.upper()}</summary>")
+        lines.append("")
 
         items = []
         for name in sorted(diffs[diff].keys(), key=lambda s: s.lower()):
             cand = diffs[diff][name]
             p = cand.get("kt") or cand.get("java")  # kt 우선
-            slug = pascal_to_kebab(name)
+
+            slug = override.get(name) or pascal_to_kebab(name)
             url = f"https://leetcode.com/problems/{slug}/"
             items.append(f"<sub>[{name}]({url}).[src]({p})</sub>")
 
         lines.append(" ".join(items))
         lines.append("")
-
-    lines.append("</details>")
-    lines.append("")
+        lines.append("</details>")
+        lines.append("")
 
     return "\n".join(lines).rstrip() + "\n"
-
 
 def main():
     with open("README.md", "r", encoding="utf-8") as f:

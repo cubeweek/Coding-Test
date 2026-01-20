@@ -10,7 +10,6 @@
 
 ## 푼 문제 / 소스 Link
 
----
 레포 내에 존재하는 백준 / 리트코드 문제와 소스 링크를 [문제].[소스] 형태로 보실 수 있습니다.
 
 ### Baekjoon - Solved Index
@@ -25,7 +24,6 @@
 
 ## Utilities
 
----
 관련 유틸들은 모두 Python 기반으로 만들어져 사용하시려면 Python 및 추가 라이브러리들의 설치가 필요합니다.
 
 <details>
@@ -48,9 +46,8 @@
 #### Usage
 - 인텔리제이 External Tools에 등록하여 사용
 
-  <a href="./resources/setting_auto_test_baekjoon.png">
-    <img src="./resources/setting_auto_test_baekjoon.png" width="400" />
-  </a>
+  [<img src="./resources/setting_auto_test_baekjoon.png" width="450" />](https://raw.githubusercontent.com/cubeweek/Coding-Test/main/resources/setting_autotest_baekjoon.png)
+
 
 - 터미널에서 사용할 경우(레포 최상위에서 실행)
   ```bash

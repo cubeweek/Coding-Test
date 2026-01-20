@@ -15,7 +15,7 @@
 ### Baekjoon - Solved Index
 <!-- BAEKJOON-AUTO-GENERATED:START -->
 <details>
-<summary><strong>BRONZE</strong></summary>
+<summary>BRONZE</summary>
 
 **B1**  
 <sub>[1259](https://www.acmicpc.net/problem/1259).[src](src/problem/baekjoon/bronze/b1/BJ1259.kt)</sub> <sub>[1546](https://www.acmicpc.net/problem/1546).[src](src/problem/baekjoon/bronze/b1/BJ1546.java)</sub> <sub>[2163](https://www.acmicpc.net/problem/2163).[src](src/problem/baekjoon/bronze/b1/BJ2163.kt)</sub> <sub>[2609](https://www.acmicpc.net/problem/2609).[src](src/problem/baekjoon/bronze/b1/BJ2609.kt)</sub> <sub>[2775](https://www.acmicpc.net/problem/2775).[src](src/problem/baekjoon/bronze/b1/BJ2775.kt)</sub> <sub>[2869](https://www.acmicpc.net/problem/2869).[src](src/problem/baekjoon/bronze/b1/BJ2869.kt)</sub> <sub>[2999](https://www.acmicpc.net/problem/2999).[src](src/problem/baekjoon/bronze/b1/BJ2999.kt)</sub> <sub>[3985](https://www.acmicpc.net/problem/3985).[src](src/problem/baekjoon/bronze/b1/BJ3985.kt)</sub> <sub>[8595](https://www.acmicpc.net/problem/8595).[src](src/problem/baekjoon/bronze/b1/BJ8595.kt)</sub> <sub>[10989](https://www.acmicpc.net/problem/10989).[src](src/problem/baekjoon/bronze/b1/BJ10989.kt)</sub> <sub>[11050](https://www.acmicpc.net/problem/11050).[src](src/problem/baekjoon/bronze/b1/BJ11050.kt)</sub> <sub>[14626](https://www.acmicpc.net/problem/14626).[src](src/problem/baekjoon/bronze/b1/BJ14626.kt)</sub> <sub>[16020](https://www.acmicpc.net/problem/16020).[src](src/problem/baekjoon/bronze/b1/BJ16020.kt)</sub> <sub>[16189](https://www.acmicpc.net/problem/16189).[src](src/problem/baekjoon/bronze/b1/BJ16189.kt)</sub> <sub>[24052](https://www.acmicpc.net/problem/24052).[src](src/problem/baekjoon/bronze/b1/BJ24052.kt)</sub> <sub>[28702](https://www.acmicpc.net/problem/28702).[src](src/problem/baekjoon/bronze/b1/BJ28702.kt)</sub>
@@ -35,7 +35,7 @@
 </details>
 
 <details>
-<summary><strong>SILVER</strong></summary>
+<summary>SILVER</summary>
 
 **S1**  
 <sub>[1747](https://www.acmicpc.net/problem/1747).[src](src/problem/baekjoon/silver/s1/BJ1747.kt)</sub> <sub>[2178](https://www.acmicpc.net/problem/2178).[src](src/problem/baekjoon/silver/s1/BJ2178.kt)</sub> <sub>[11286](https://www.acmicpc.net/problem/11286).[src](src/problem/baekjoon/silver/s1/BJ11286.kt)</sub> <sub>[11660](https://www.acmicpc.net/problem/11660).[src](src/problem/baekjoon/silver/s1/BJ11660.java)</sub> <sub>[14940](https://www.acmicpc.net/problem/14940).[src](src/problem/baekjoon/silver/s1/BJ14940.kt)</sub>
@@ -55,7 +55,7 @@
 </details>
 
 <details>
-<summary><strong>GOLD</strong></summary>
+<summary>GOLD</summary>
 
 **G1**  
 <sub>[1016](https://www.acmicpc.net/problem/1016).[src](src/problem/baekjoon/gold/g1/BJ1016.kt)</sub> <sub>[1300](https://www.acmicpc.net/problem/1300).[src](src/problem/baekjoon/gold/g1/BJ1300.kt)</sub> <sub>[11003](https://www.acmicpc.net/problem/11003).[src](src/problem/baekjoon/gold/g1/BJ11003.kt)</sub> <sub>[11689](https://www.acmicpc.net/problem/11689).[src](src/problem/baekjoon/gold/g1/BJ11689.kt)</sub>
@@ -75,7 +75,7 @@
 </details>
 
 <details>
-<summary><strong>PLATINUM</strong></summary>
+<summary>PLATINUM</summary>
 
 **P5**  
 <sub>[6549](https://www.acmicpc.net/problem/6549).[src](src/problem/baekjoon/platinum/p5/BJ6549.kt)</sub>
@@ -87,7 +87,7 @@
 ### LeetCode - Solved Index
 <!-- LEETCODE-AUTO-GENERATED:START -->
 <details>
-<summary><strong>LEETCODE</strong></summary>
+<summary>{tier.upper()}</summary>
 
 **EASY**  
 <sub>[PlusOne](https://leetcode.com/problems/plus-one/).[src](src/problem/leetcode/easy/PlusOne.kt)</sub>

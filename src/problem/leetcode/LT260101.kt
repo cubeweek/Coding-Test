@@ -1,4 +1,4 @@
-package problem.backjoon.bronze
+package problem.leetcode
 
 fun plusOne(digits: IntArray): IntArray {
     val digitLen = digits.size - 1

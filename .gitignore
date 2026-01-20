@@ -1,0 +1,24 @@
+# IntelliJ / JetBrains
+.idea/
+*.iml
+out/
+
+# Gradle
+.gradle/
+**/build/
+
+# Java/Kotlin compiled
+*.class
+*.jar
+*.war
+*.ear
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# 백준 자동 채점 사용 시 생성되는 캐시파일은 무시한다.
+.boj_cache/

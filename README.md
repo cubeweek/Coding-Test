@@ -87,9 +87,8 @@
 ### LeetCode - Solved Index
 <!-- LEETCODE-AUTO-GENERATED:START -->
 <details>
-<summary>{tier.upper()}</summary>
+<summary>EASY</summary>
 
-**EASY**  
 <sub>[PlusOne](https://leetcode.com/problems/plus-one/).[src](src/problem/leetcode/easy/PlusOne.kt)</sub>
 
 </details>

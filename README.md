@@ -1,6 +1,5 @@
 # Coding-Test
 
----
 이 레포는 [백준](https://www.acmicpc.net/) / [LeetCode](https://leetcode.com/)의 문제 풀이 소스와 관련 유틸 프로그램들의 백업 목적으로 생성되었습니다!
 
 | Baekjoon                                                                                               | LeetCode                                                                                   |
@@ -9,13 +8,14 @@
 <!--img src="https://leetcode-badge-showcase.vercel.app/api?username=cube_week-99&animated=true" alt="LeetCode Badges" /-->
 
 
-# 푼 문제 / 소스 Link
+## 푼 문제 / 소스 Link
 
 ---
 레포 내에 존재하는 백준 / 리트코드 문제와 소스 링크를 [문제].[소스] 형태로 보실 수 있습니다.
 
 ### Baekjoon - Solved Index
 <!-- BACKJOON-AUTO-GENERATED:START -->
+<sub>[1259](https://www.acmicpc.net/problem/1259).[src](src/problem/backjoon/bronze/b1/BJ1259.kt)</sub>
 <!-- BACKJOON-AUTO-GENERATED:END -->
 
 ### LeetCode - Solved Index

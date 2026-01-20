@@ -66,7 +66,7 @@ def build_block(paths):
                 if not p:
                     continue
                 problem = f"https://www.acmicpc.net/problem/{num}"
-                items.append(f"<sub>[{num}]({problem}.<small>[src]({p})</small>)</sub>")
+                items.append(f"<sub>[{num}]({problem}).[src]({p})</sub>")
 
             lines.append(" ".join(items))
             lines.append("")

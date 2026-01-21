@@ -2,9 +2,9 @@
 
 이 레포는 [백준](https://www.acmicpc.net/) / [LeetCode](https://leetcode.com/)의 문제 풀이 소스와 관련 유틸 프로그램들의 백업 목적으로 생성되었습니다!
 
-| Baekjoon                                                                                               | LeetCode                                                                                   |
-|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| [![solved.ac](http://mazassumnida.wtf/api/v2/generate_badge?boj=cubeweek)](https://solved.ac/cubeweek) | ![LeetCode Stats](https://leetcode-badge-sage.vercel.app/badge/cube_week-99?theme=neutral) |
+| Baekjoon                                                                                               | LeetCode                                                                                    |
+|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| [![solved.ac](http://mazassumnida.wtf/api/v2/generate_badge?boj=cubeweek)](https://solved.ac/cubeweek) | ![LeetCode Stats](https://leetcode-badge-sage.vercel.app/badge/cube_week-99?bgColor=fafad2) |
 <!--img src="https://leetcode-badge-showcase.vercel.app/api?username=cube_week-99&animated=true" alt="LeetCode Badges" /-->
 
 
@@ -13,6 +13,8 @@
 레포 내에 존재하는 백준 / 리트코드 문제와 소스 링크를 [문제].[소스] 형태로 보실 수 있습니다.
 
 ### Baekjoon - Solved Index
+
+---
 <!-- BAEKJOON-AUTO-GENERATED:START -->
 <details>
 <summary>BRONZE</summary>
@@ -85,6 +87,8 @@
 <!-- BAEKJOON-AUTO-GENERATED:END -->
 
 ### LeetCode - Solved Index
+
+---
 <!-- LEETCODE-AUTO-GENERATED:START -->
 <details>
 <summary>EASY</summary>
@@ -103,7 +107,7 @@
 <details>
 <summary>백준/LeetCode 난이도 별 폴더 자동 정리</summary>
 문제 번호/명으로 풀이 파일은 만들고(이건 필수) 다 풀었는데, 굳이 난이도 분류까지 한땀한땀 손으로 해야 할까요?<br>
-알아서 난이도에 맞는 “최종 폴더(leaf)”로 알아서 이동시키는 정리 스크립트입니다.
+알아서 난이도에 맞는 폴더로 이동시키는 정리 스크립트입니다.
 
 #### Script: [`move_by_tier.py`](src/util/move_by_tier.py)
 #### What it does

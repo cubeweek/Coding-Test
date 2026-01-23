@@ -63,7 +63,7 @@
 <sub>[1016](https://www.acmicpc.net/problem/1016).[src](src/problem/baekjoon/gold/g1/BJ1016.kt)</sub> <sub>[1300](https://www.acmicpc.net/problem/1300).[src](src/problem/baekjoon/gold/g1/BJ1300.kt)</sub> <sub>[11003](https://www.acmicpc.net/problem/11003).[src](src/problem/baekjoon/gold/g1/BJ11003.kt)</sub> <sub>[11689](https://www.acmicpc.net/problem/11689).[src](src/problem/baekjoon/gold/g1/BJ11689.kt)</sub>
 
 **G2**  
-<sub>[1033](https://www.acmicpc.net/problem/1033).[src](src/problem/baekjoon/gold/g2/BJ1033.kt)</sub> <sub>[1167](https://www.acmicpc.net/problem/1167).[src](src/problem/baekjoon/gold/g2/BJ1167.kt)</sub> <sub>[1377](https://www.acmicpc.net/problem/1377).[src](src/problem/baekjoon/gold/g2/BJ1377.kt)</sub> <sub>[17136](https://www.acmicpc.net/problem/17136).[src](src/problem/baekjoon/gold/g2/BJ17136.kt)</sub>
+<sub>[1033](https://www.acmicpc.net/problem/1033).[src](src/problem/baekjoon/gold/g2/BJ1033.kt)</sub> <sub>[1167](https://www.acmicpc.net/problem/1167).[src](src/problem/baekjoon/gold/g2/BJ1167.kt)</sub> <sub>[1377](https://www.acmicpc.net/problem/1377).[src](src/problem/baekjoon/gold/g2/BJ1377.kt)</sub> <sub>[14565](https://www.acmicpc.net/problem/14565).[src](src/problem/baekjoon/gold/g2/BJ14565.kt)</sub> <sub>[17136](https://www.acmicpc.net/problem/17136).[src](src/problem/baekjoon/gold/g2/BJ17136.kt)</sub>
 
 **G3**  
 <sub>[10986](https://www.acmicpc.net/problem/10986).[src](src/problem/baekjoon/gold/g3/BJ10986.java)</sub>

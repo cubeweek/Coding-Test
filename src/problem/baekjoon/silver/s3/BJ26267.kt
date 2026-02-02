@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s3
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -7,29 +7,14 @@ import java.util.*
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bankCnt = br.readLine().toInt()
-    val idxInfo = IntArray(bankCnt)
-    val openTimes = IntArray(bankCnt)
-    val coins = IntArray(bankCnt)
+    val sumList = HashMap<Int, Long>()
 
-    var bIdx=0
     repeat(bankCnt) {
         val st = StringTokenizer(br.readLine())
-        idxInfo[bIdx] = st.nextToken().toInt()
-        openTimes[bIdx] = st.nextToken().toInt()
-        coins[bIdx] = st.nextToken().toInt()
-        ++bIdx
+        val key = st.nextToken().toInt() - st.nextToken().toInt()
+        val coin = st.nextToken().toLong()
+        sumList[key] = (sumList[key] ?: 0L) + coin
     }
 
-    var maxEarn = Long.MIN_VALUE
-    for (i in 0 until bankCnt) {
-        var time = openTimes[i]
-        var nowEarn = coins[i].toLong()
-        for (j in i + 1 until bankCnt) {
-            time += idxInfo[j] - idxInfo[j-1]
-            if (openTimes[j] == time) nowEarn += coins[j]
-        }
-        maxEarn = maxOf(maxEarn, nowEarn)
-    }
-
-    print(maxEarn)
+    print(sumList.values.max())
 }

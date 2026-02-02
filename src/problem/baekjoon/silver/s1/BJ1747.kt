@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s1
 
 fun main(args: Array<String>) {
     fun checkPalindrome(prime: Int):Boolean {

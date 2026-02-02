@@ -1,4 +1,4 @@
-package problem.baekjoon.platinum;
+package problem.baekjoon.gold.g1;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze;
+package problem.baekjoon.bronze.b2;
 
 import java.util.Arrays;
 import java.util.Scanner;

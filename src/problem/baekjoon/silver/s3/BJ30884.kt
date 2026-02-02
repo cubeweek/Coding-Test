@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s3
 
 import java.lang.StringBuilder
 

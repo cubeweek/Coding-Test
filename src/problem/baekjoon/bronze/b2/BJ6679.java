@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze;
+package problem.baekjoon.bronze.b2;
 
 import java.io.IOException;
 import java.util.ArrayList;

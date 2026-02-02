@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s1
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

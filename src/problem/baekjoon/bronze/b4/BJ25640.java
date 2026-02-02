@@ -1,5 +1,5 @@
 
-package problem.baekjoon.bronze;
+package problem.baekjoon.bronze.b4;
 
 import java.io.BufferedReader;
 import java.io.IOException;

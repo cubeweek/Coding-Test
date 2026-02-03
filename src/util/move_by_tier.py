@@ -18,12 +18,110 @@ BOJ_ROOT = BASE_DIR / "src/problem/baekjoon"
 LC_ROOT = BASE_DIR / "src/problem/leetcode"
 
 ALLOWED_SUFFIX = {".java", ".kt"}
+# =======================
+# Package rewrite helpers
+# =======================
+PKG_RE = re.compile(r'^\s*package\s+([A-Za-z0-9_.]+)\s*$', re.MULTILINE)
+
+def compute_package_from_path(java_or_kt_file: Path) -> str:
+    """
+    예) .../src/problem/leetcode/easy/TwoSum.kt -> problem.leetcode.easy
+        .../src/problem/baekjoon/gold/g4/BJ2251.kt -> problem.baekjoon.gold.g4
+    """
+    parts = java_or_kt_file.parts
+    if "src" not in parts:
+        raise ValueError(f"'src' not found in path: {java_or_kt_file}")
+
+    src_idx = parts.index("src")
+    pkg_parts = parts[src_idx + 1 : -1]  # filename 제외
+    if not pkg_parts:
+        raise ValueError(f"cannot compute package for: {java_or_kt_file}")
+    return ".".join(pkg_parts)
+
+
+def rewrite_package_declaration(file_path: Path, new_package: str) -> bool:
+    is_java = (file_path.suffix == ".java")
+    desired_pkg_line = f"package {new_package}{';' if is_java else ''}"
+
+    text = file_path.read_text(encoding="utf-8")
+    lines = text.splitlines(True)  # keepends
+
+    # 1) package를 검사/삽입할 "지점" 찾기: Kotlin @file: + 선행 주석/빈줄은 건너뜀
+    i = 0
+    while i < len(lines) and lines[i].lstrip().startswith("@file:"):
+        i += 1
+
+    while i < len(lines):
+        s = lines[i].lstrip()
+        if s == "" or s == "\n" or s == "\r\n" or s.startswith("//") or s.startswith("/*") or s.startswith("*"):
+            i += 1
+            continue
+        break
+
+    # 2) i 위치가 실제 package 라인인지 확인(“주석 속 package”는 여기 오기 전에 걸러짐)
+    pkg_line_re = re.compile(r'^\s*package\s+([A-Za-z0-9_.]+)\s*;?\s*$')
+
+    if i < len(lines):
+        m = pkg_line_re.match(lines[i])
+        if m:
+            old_pkg = m.group(1)
+
+            # package 라인 교체 (동일 패키지라도 Java 세미콜론/형식 맞추기 위해 desired로 통일)
+            lines2 = lines[:]
+            lines2[i] = desired_pkg_line + "\n"
+
+            # package 다음은 빈 줄 1개 보장: 다음 줄이 비어있지 않으면 삽입, 비어있으면 1개로 정규화
+            j = i + 1
+            # 이미 여러 개 빈줄이면 1개로 줄이기
+            while j < len(lines2) and lines2[j] in ("\n", "\r\n"):
+                j += 1
+            # i+1 ~ j-1 이 빈줄 구간. 원하는 건 정확히 1줄 빈줄.
+            lines2 = lines2[:i+1] + ["\n"] + lines2[j:]
+
+            new_text = "".join(lines2)
+            if new_text == text:
+                return False
+            file_path.write_text(new_text, encoding="utf-8")
+            return True
+
+    # 3) package 라인이 없으면 i 위치에 삽입 + 빈 줄 1개
+    lines2 = lines[:]
+    lines2.insert(i, desired_pkg_line + "\n\n")
+    new_text = "".join(lines2)
+
+    if new_text == text:
+        return False
+
+    file_path.write_text(new_text, encoding="utf-8")
+    return True
+
+
+def normalize_packages(root: Path) -> tuple[int, int]:
+    """root 하위(.kt/.java) 전부 스캔해서 경로 기반 package로 맞춤."""
+    fixed, skipped = 0, 0
+    files = [p for p in root.rglob("*") if p.is_file() and p.suffix in ALLOWED_SUFFIX]
+
+    for f in files:
+        try:
+            expected = compute_package_from_path(f)
+            if rewrite_package_declaration(f, expected):
+                print(f"[PKG][fixed] {f} -> package {expected}")
+                fixed += 1
+        except Exception as e:
+            print(f"[PKG][skip] {f}: {e}")
+            skipped += 1
+
+    return fixed, skipped
 
 # =======================
 # BOJ: solved.ac API
 # =======================
 SOLVEDAC_API_URL = "https://solved.ac/api/v3/problem/lookup"
-SOLVEDAC_HEADERS = {"Accept": "application/json"}
+SOLVEDAC_HEADERS = {
+    "Accept": "application/json",
+    "User-Agent": "Mozilla/5.0",
+}
+
 
 BJ_RE = re.compile(r"\b(?:BJ|BOJ)\s*0*([0-9]{1,6})\b", re.IGNORECASE)
 
@@ -90,6 +188,16 @@ def safe_move(src: Path, dst_dir: Path):
     if dst.exists():
         dst.unlink()
     src.replace(dst)
+
+    # 이동된 파일의 경로 기준으로 package 맞추기
+    if dst.suffix in ALLOWED_SUFFIX:
+        try:
+            new_pkg = compute_package_from_path(dst)
+            if rewrite_package_declaration(dst, new_pkg):
+                print(f"[PKG] {dst} -> package {new_pkg}")
+        except Exception as e:
+            print(f"[PKG][skip] {dst}: {e}")
+
 
 # =======================
 # Leaf checks
@@ -256,7 +364,15 @@ def organize_leetcode():
 def main():
     boj_moved, _ = organize_boj()
     lc_moved, lc_skipped = organize_leetcode()
-    print(f"Done. boj_moved={boj_moved}, lc_moved={lc_moved}, lc_skipped={lc_skipped}")
+
+    # src/problem/** 만 스캔해서 package 싹 정리
+    pkg_fixed, pkg_skipped = normalize_packages(BASE_DIR / "src/problem")
+
+    print(
+        f"Done. boj_moved={boj_moved}, lc_moved={lc_moved}, lc_skipped={lc_skipped}, "
+        f"pkg_fixed={pkg_fixed}, pkg_skipped={pkg_skipped}"
+    )
+
 
 if __name__ == "__main__":
     main()

@@ -12,7 +12,7 @@ fun main (args: Array<String>) {
 
     while (true) {
         val histogram = br.readLine().split(" ").map { it.toLong() }
-        if (0L == histogram[0]) break;
+        if (0L == histogram[0]) break
         stack.clear()
         var accCnt = 0
         var maxSize = 0L

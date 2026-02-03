@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s4
 
 fun main(args: Array<String>) {
     val sugar = readln().toInt()

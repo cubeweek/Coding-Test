@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze
+package problem.baekjoon.bronze.b5
 
 fun main (args: Array<String>) {
     println("#  # #### #### #  #")

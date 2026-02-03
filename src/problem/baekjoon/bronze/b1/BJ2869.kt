@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze.b1s
+package problem.baekjoon.bronze.b1
 
 fun main(args: Array<String>) {
     val (a, b, v) = readln().split(" ").map { it.toInt() }

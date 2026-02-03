@@ -1,4 +1,3 @@
-
 package problem.baekjoon.bronze.b3;
 
 import java.io.BufferedReader;

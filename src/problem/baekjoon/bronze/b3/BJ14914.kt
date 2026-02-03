@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze
+package problem.baekjoon.bronze.b3
 
 import java.lang.Integer.min
 import java.lang.StringBuilder

@@ -1,4 +1,4 @@
-package problem.baekjoon.bronze
+package problem.baekjoon.bronze.b2
 
 fun main(args: Array<String>) {
     val MODULAR = 1_234_567_891L

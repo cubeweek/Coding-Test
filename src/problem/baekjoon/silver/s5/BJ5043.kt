@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.silver.s5
 
 fun main (args: Array<String>) {
     val (n, b) = readln().split(" ").map { it.toLong() }

@@ -1,3 +1,5 @@
+package problem.baekjoon.bronze.b5
+
 import java.math.BigInteger
 
 fun main(args: Array<String>) {

@@ -1,4 +1,4 @@
-package problem.baekjoon.silver
+package problem.baekjoon.bronze.b2
 
 import java.lang.StringBuilder
 

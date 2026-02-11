@@ -1,15 +1,13 @@
 import sys
-import os
 import re
-import shutil  # 폴더 삭제용
+import shutil
 import json
-import subprocess
+import subprocess, time, os, threading
+import psutil
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-import time
-
 from bs4 import BeautifulSoup
 
 
@@ -126,21 +124,20 @@ def find_kotlin_file(file_name):
             return os.path.join(root, target_name)
     return None
 
-
-def run_kotlin(file_path, input_data):
-    # 본인 환경에 맞는 Java 경로 지정 필요시 수정
-    # java_path = "/path/to/java"
-
-    jar_name = "temp_solution.jar"
-    compile_cmd = ["kotlinc", file_path, "-include-runtime", "-d", jar_name]
-
+def compile_kotlin_to_jar(kt_file, jar_name="temp_solution.jar"):
+    compile_cmd = ["kotlinc", kt_file, "-include-runtime", "-d", jar_name]
     try:
         subprocess.run(compile_cmd, check=True, stderr=subprocess.PIPE)
+        return jar_name, None
     except subprocess.CalledProcessError as e:
-        return "", f"컴파일 에러:\n{e.stderr.decode('utf-8')}"
+        return None, e.stderr.decode("utf-8", errors="replace")
 
+def run_jar_with_metrics(jar_name, input_data, interval_sec=0.01, timeout_sec=None):
+    # wall-clock time(ms) + peak RSS(KB) for this run
     run_cmd = ["java", "-jar", jar_name]
-    process = subprocess.Popen(
+    start = time.perf_counter()
+
+    p = subprocess.Popen(
         run_cmd,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
@@ -148,13 +145,41 @@ def run_kotlin(file_path, input_data):
         text=True
     )
 
-    stdout, stderr = process.communicate(input=input_data)
+    peak_rss = 0
+    done = False
 
-    if os.path.exists(jar_name):
-        os.remove(jar_name)
+    def monitor():
+        nonlocal peak_rss, done
+        try:
+            proc = psutil.Process(p.pid)
+            while not done and p.poll() is None:
+                try:
+                    rss = proc.memory_info().rss  # bytes
+                    if rss > peak_rss:
+                        peak_rss = rss
+                except psutil.Error:
+                    pass
+                time.sleep(interval_sec)
+        except psutil.Error:
+            pass
 
-    return stdout.strip(), stderr
+    t = threading.Thread(target=monitor, daemon=True)
+    t.start()
 
+    try:
+        stdout, stderr = p.communicate(input=input_data, timeout=timeout_sec)
+    except subprocess.TimeoutExpired:
+        p.kill()
+        stdout, stderr = p.communicate()
+        stderr = (stderr or "") + "\n[TLE] timeout"
+    finally:
+        done = True
+        t.join(timeout=0.2)
+
+    elapsed_ms = (time.perf_counter() - start) * 1000.0
+    mem_kb = int(peak_rss / 1024)
+
+    return stdout.strip(), (stderr or "").strip(), int(elapsed_ms), mem_kb
 
 def main():
     if len(sys.argv) < 2:
@@ -186,7 +211,14 @@ def main():
         return
     print(f"📂 소스 파일: {kt_file}")
 
-    # 2. 테스트 케이스 확보
+    # 2. 찾은 소스 컴파일
+    jar_name = "temp_solution.jar"
+    jar_path, comp_err = compile_kotlin_to_jar(kt_file, jar_name)
+    if comp_err:
+        print(f"❌ 컴파일 에러:\n{comp_err}")
+        return
+
+    # 3. 테스트 케이스 확보
     test_cases = get_cached_test_cases(problem_id)
 
     if test_cases:
@@ -205,17 +237,19 @@ def main():
 
     print(f"✅ 총 {len(test_cases)}개의 테스트 케이스를 실행합니다.\n")
 
-    # 3. 실행 및 검증
+    # 4. 실행 및 검증
     all_passed = True
     for idx, case in enumerate(test_cases, 1):
         inp = case['input']
         expected = case['output']
 
         print(f"--- CASE {idx} ---")
-        actual, err = run_kotlin(kt_file, inp)
+        actual, err, elapsed_ms, mem_kb = run_jar_with_metrics(jar_name, inp)
+        print(f"메모리 {mem_kb} KB   시간 {elapsed_ms} ms")
+
 
         if err:
-            print(f"⚠️ 런타임/컴파일 에러:\n{err}")
+            print(f"⚠️ 런타임 에러:\n{err}")
             all_passed = False
             continue
 
@@ -231,6 +265,9 @@ def main():
             print(f"[Actual]\n{clean_actual}")
             all_passed = False
         print()
+
+    if os.path.exists(jar_name):
+        os.remove(jar_name)
 
     if all_passed:
         print("🎉 모든 테스트 케이스 통과! 고생하셨습니다.")

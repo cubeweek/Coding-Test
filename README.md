@@ -105,6 +105,34 @@
 관련 유틸들은 모두 Python 기반으로 만들어져 사용하시려면 Python 및 추가 라이브러리들의 설치가 필요합니다.
 
 <details>
+<summary>Baekjoon 예제 자동 채점(Kotlin ONLY!)</summary>
+한땀 한땀 실행-예제를 입력하던 불편함을 딸-깍으로 해결하기 위해<br>
+백준 문제 페이지의 예제 입력/출력을 자동으로 가져와(재시도부터는 캐시 사용) 로컬에서 Kotlin 풀이를 컴파일/실행하고 결과를 비교합니다.
+
+#### Script:  [`autotest_baekjoon.py`](src/util/autotest_baekjoon.py)
+#### What it does:
+- BOJ 문제 페이지에서 sample input/output을 수집합니다. (Selenium 사용)
+- 수집한 예제는 `.boj_cache/{problemId}.json`에 캐시합니다.
+- `src/problem/baekjoon/**/BJ{problemId}.kt` 파일을 찾아 `kotlinc`로 컴파일 후 실행합니다.
+- 각 케이스별로 출력이 일치하는지 확인하고, 불일치 시 Expected/Actual을 출력합니다.
+#### Usage
+- 인텔리제이 External Tools에 등록하여 사용
+
+  [<img src="./resources/setting_autotest_baekjoon.png" width="450" />](https://raw.githubusercontent.com/cubeweek/Coding-Test/main/resources/setting_autotest_baekjoon.png)
+
+
+- 터미널에서 사용할 경우(레포 최상위에서 실행)
+  ```bash
+  # 사용방법1 : BJ1300.kt를 찾아서 예제 케이스로 테스트
+  python3 /src/util/autotest_baekjoon.py BJ1300
+  ```
+  ```bash
+  # 사용방법2 : 생성된 백준 예시 캐시 파일을 모두 삭제하고 싶은 경우
+  python3 /src/util/autotest_baekjoon.py clear
+  ```
+</details>
+
+<details>
 <summary>백준/LeetCode 난이도 별 폴더 자동 정리</summary>
 문제 번호/명으로 풀이 파일은 만들고(이건 필수) 다 풀었는데, 굳이 난이도 분류까지 한땀한땀 손으로 해야 할까요?<br>
 알아서 난이도에 맞는 폴더로 이동시키는 정리 스크립트입니다.
@@ -127,33 +155,5 @@
 - 터미널에서 사용 (레포 최상위에서 실행)
   ```bash
   python3 src/util/move_by_tier.py
-  ```
-</details>
-
-<details>
-<summary>Baekjoon 예제 자동 채점(Kotlin ONLY!)</summary>
-한땀 한땀 실행-예제를 입력하던 불편함을 딸-깍 한 번으로 해결하기 위해<br>
-백준 문제 페이지의 예제 입력/출력을 자동으로 가져와(재시도부터는 캐시 사용) 로컬에서 Kotlin 풀이를 컴파일/실행하고 결과를 비교합니다.
-
-#### Script:  [`autotest_baekjoon.py`](src/util/autotest_baekjoon.py)
-#### What it does:
-  - BOJ 문제 페이지에서 sample input/output을 수집합니다. (Selenium 사용)
-  - 수집한 예제는 `.boj_cache/{problemId}.json`에 캐시합니다.
-  - `src/problem/baekjoon/**/BJ{problemId}.kt` 파일을 찾아 `kotlinc`로 컴파일 후 실행합니다.
-  - 각 케이스별로 출력이 일치하는지 확인하고, 불일치 시 Expected/Actual을 출력합니다.
-#### Usage
-- 인텔리제이 External Tools에 등록하여 사용
-
-  [<img src="./resources/setting_autotest_baekjoon.png" width="450" />](https://raw.githubusercontent.com/cubeweek/Coding-Test/main/resources/setting_autotest_baekjoon.png)
-
-
-- 터미널에서 사용할 경우(레포 최상위에서 실행)
-  ```bash
-  # 사용방법1 : BJ1300.kt를 찾아서 예제 케이스로 테스트
-  python3 /src/util/autotest_baekjoon.py BJ1300
-  ```
-  ```bash
-  # 사용방법2 : 생성된 백준 예시 캐시 파일을 모두 삭제하고 싶은 경우
-  python3 /src/util/autotest_baekjoon.py clear
   ```
 </details>

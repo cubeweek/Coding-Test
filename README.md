@@ -80,7 +80,7 @@
 <summary>PLATINUM</summary>
 
 **P5**  
-<sub>[1517](https://www.acmicpc.net/problem/1517).[src](src/problem/baekjoon/platinum/p5/BJ1517.kt)</sub> <sub>[6549](https://www.acmicpc.net/problem/6549).[src](src/problem/baekjoon/platinum/p5/BJ6549.kt)</sub>
+<sub>[1517](https://www.acmicpc.net/problem/1517).[src](src/problem/baekjoon/platinum/p5/BJ1517.kt)</sub> <sub>[1948](https://www.acmicpc.net/problem/1948).[src](src/problem/baekjoon/platinum/p5/BJ1948.kt)</sub> <sub>[6549](https://www.acmicpc.net/problem/6549).[src](src/problem/baekjoon/platinum/p5/BJ6549.kt)</sub>
 
 </details>
 

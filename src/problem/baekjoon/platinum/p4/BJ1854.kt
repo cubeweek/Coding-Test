@@ -2,7 +2,7 @@ package problem.baekjoon.platinum.p4
 
 import java.util.PriorityQueue
 
-object FastReader {
+private object FastReader {
     val buffer = ByteArray(1 shl 16)
     var lim = 0
     var cur = 0

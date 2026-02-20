@@ -1,6 +1,6 @@
 package helper
 
-object FastReader {
+private object FastReader {
     val buffer = ByteArray(1 shl 16)
     var lim = 0
     var cur = 0

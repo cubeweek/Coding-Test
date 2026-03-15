@@ -1,9 +1,10 @@
 package problem.baekjoon.gold.g1
 
 import java.util.PriorityQueue
+import java.util.ArrayDeque
 
 fun main(args: Array<String>) {
-    data class Island(val stY:Int, val stX:Int, val edY:Int, val edX:Int)
+    data class Coodi(val y:Int, val x:Int)
     data class Bridge(val src:Int, val dst:Int, val size:Int)
 
     class FastReader {
@@ -45,7 +46,7 @@ fun main(args: Array<String>) {
     val seaH = fs.nextInt()
     val seaW = fs.nextInt()
     val map = Array(seaH) { IntArray(seaW) }
-    val islands = ArrayList<Island>()
+    val unvisited = Array(seaH) { BooleanArray(seaW) { true } }
 
     for (i in 0 until seaH) {
         for (j in 0 until seaW) {
@@ -53,36 +54,36 @@ fun main(args: Array<String>) {
         }
     }
 
-    for (i in 0 until seaH) {
-        var j = 0
-        while (j < seaW) {
-            when (map[i][j]) {
-                1 -> {
-                    var edY = i
-                    var edX = j
-                    map[i][j] = 2
-                    while (++edX < seaW && map[i][edX] == 1) map[i][edX] = 2
-                    while (++edY < seaH && map[edY][j] == 1) map[edY][j] = 2
+    fun isVaild(y: Int, x: Int): Boolean = y in 0 until seaH && x in 0 until seaW && unvisited[y][x]
 
-                    islands.add(Island(i, j, --edY, --edX))
-                    j = edX
+
+    var islandSrl = 1
+    val stack = ArrayDeque<Coodi>()
+    for (i in 0 until seaH) {
+        for (j in 0 until seaW) {
+            if (unvisited[i][j]) {
+                stack.add(Coodi(i, j))
+                while (stack.isNotEmpty()) {
+                    val now = stack.pop()
+
                 }
-                2 -> while (j < seaW && map[i][j] != 0) ++j
-                else -> j++
             }
         }
     }
+
+
     println(map.joinToString("\n") { it.joinToString(" ") })
-    print(islands.joinToString("\n"))
 
     val pq = PriorityQueue<Bridge>(compareBy { it.size })
     for (i in islands) {
         for (j in islands) {
             if (i == j) continue
+            println("$i <-> $j :")
             print("${i.stY - j.stY} ")
+            print("${i.edY - j.edY} ")
             print("${i.stX - j.stX} ")
-            print("${i.stX - j.stX} ")
-            print("${i.stX - j.stX} ")
+            print("${i.edX - j.edX} ")
+            println("")
         }
     }
 }

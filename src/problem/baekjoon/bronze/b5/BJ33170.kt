@@ -5,5 +5,5 @@ fun main(args: Array<String>) {
     val b = readln().toInt()
     val c = readln().toInt()
 
-    println( if (a+b+c == 21) 1 else 0 )
+    println( if (a+b+c <= 21) 1 else 0 )
 }

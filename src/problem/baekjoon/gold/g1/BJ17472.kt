@@ -65,25 +65,8 @@ fun main(args: Array<String>) {
                 stack.add(Coodi(i, j))
                 while (stack.isNotEmpty()) {
                     val now = stack.pop()
-
                 }
             }
-        }
-    }
-
-
-    println(map.joinToString("\n") { it.joinToString(" ") })
-
-    val pq = PriorityQueue<Bridge>(compareBy { it.size })
-    for (i in islands) {
-        for (j in islands) {
-            if (i == j) continue
-            println("$i <-> $j :")
-            print("${i.stY - j.stY} ")
-            print("${i.edY - j.edY} ")
-            print("${i.stX - j.stX} ")
-            print("${i.edX - j.edX} ")
-            println("")
         }
     }
 }

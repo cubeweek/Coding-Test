@@ -1,0 +1,51 @@
+package problem.baekjoon.bronze.b3
+
+fun main(args: Array<String>) {
+    val fs = object {
+        val buffer = ByteArray(1 shl 16)
+        var lim = 0
+        var cur = 0
+
+        @Suppress("NOTHING_TO_INLINE")
+        private inline fun readByte(): Int {
+            if (cur >= lim) {
+                lim = System.`in`.read(buffer)
+                if (lim <= 0) return -1
+                cur = 0
+            }
+            return buffer[cur++].toInt()
+        }
+
+        fun nextInt(): Int {
+            var c = readByte()
+            while (c in 0..32) c = readByte()
+            if (c == -1) return 0
+
+            var isNeg = false
+            if (c == 45) {
+                isNeg = true
+                c = readByte()
+            }
+
+            var res = 0
+            while (c in 48..57) {
+                res = (res shl 3) + (res shl 1) + (c and 15)
+                c = readByte()
+            }
+            return if (isNeg) -res else res
+        }
+    }
+
+    val subCnt = fs.nextInt()
+
+    var maxTime = Int.MIN_VALUE
+    var minLen = Int.MAX_VALUE
+    repeat (subCnt) {
+        val nowT = fs.nextInt()
+        val nowL = fs.nextInt()
+        if (nowT > maxTime) maxTime = nowT
+        if (nowL < minLen) minLen = nowL
+    }
+
+    println((maxTime * minLen) % 7 + 1)
+}

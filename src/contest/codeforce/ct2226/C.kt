@@ -1,7 +1,5 @@
 package contest.codeforce.ct2226
 
-import kotlin.math.min
-
 fun main(args: Array<String>) {
     val fs = object {
         val buffer = ByteArray(1 shl 16)
@@ -37,34 +35,20 @@ fun main(args: Array<String>) {
             return if (isNeg) -res else res
         }
     }
-
-    val testCnt = fs.nextInt()
     val sb = StringBuilder()
 
-    repeat(testCnt) {
-        val n = fs.nextInt()
-        val a = IntArray(n) { fs.nextInt() }
+    val testCnt = fs.nextInt()
 
-        val dp = LongArray(n + 1) { Long.MAX_VALUE }
-        dp[0] = 0
-
-        for (i in 1..n) {
-            var currentMul = 1L
-
-            for (j in i downTo 1) {
-                if (j < i && a[j-1] > a[j]) break
-
-                currentMul *= a[j-1]
-
-                if (currentMul > 1000000) break
-
-                if (dp[j-1] != Long.MAX_VALUE) {
-                    val totalCost = dp[j-1] + currentMul
-                    dp[i] = min(dp[i], totalCost)
-                }
-            }
+    repeat (testCnt) {
+        val len = fs.nextInt()
+        val arr = IntArray(len) { fs.nextInt() }.sortedArray()
+        println(arr.contentToString())
+        var mex = 0
+        for (a in arr) {
+            if (a >= mex) mex++
         }
-        sb.append("${dp[n] % 676_767_677}\n")
+        sb.append("$mex\n")
     }
     println(sb)
 }
+

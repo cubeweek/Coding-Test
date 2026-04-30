@@ -1,8 +1,12 @@
 package contest.codeforce.ct2226
-
-import kotlin.math.min
+import kotlin.math.abs
 
 fun main(args: Array<String>) {
+    fun euclidean(a: Int, b: Int): Int {
+        if (b == 0) return a
+        return euclidean(b, a % b)
+    }
+
     val fs = object {
         val buffer = ByteArray(1 shl 16)
         var lim = 0
@@ -40,31 +44,14 @@ fun main(args: Array<String>) {
 
     val testCnt = fs.nextInt()
     val sb = StringBuilder()
-
     repeat(testCnt) {
+        var answer = 0
         val n = fs.nextInt()
-        val a = IntArray(n) { fs.nextInt() }
-
-        val dp = LongArray(n + 1) { Long.MAX_VALUE }
-        dp[0] = 0
-
-        for (i in 1..n) {
-            var currentMul = 1L
-
-            for (j in i downTo 1) {
-                if (j < i && a[j-1] > a[j]) break
-
-                currentMul *= a[j-1]
-
-                if (currentMul > 1000000) break
-
-                if (dp[j-1] != Long.MAX_VALUE) {
-                    val totalCost = dp[j-1] + currentMul
-                    dp[i] = min(dp[i], totalCost)
-                }
-            }
+        val arr = IntArray(n) { fs.nextInt() }
+        for (i in 1 until n) {
+            if (abs(arr[i-1] - arr[i]) == euclidean(arr[i-1], arr[i])) answer++
         }
-        sb.append("${dp[n] % 676_767_677}\n")
+        sb.append("$answer\n")
     }
     println(sb)
 }

@@ -1,6 +1,4 @@
-package contest.codeforce.ct2226
-
-import kotlin.math.min
+package contest.codeforce.ct2227
 
 fun main(args: Array<String>) {
     val fs = object {
@@ -40,31 +38,10 @@ fun main(args: Array<String>) {
 
     val testCnt = fs.nextInt()
     val sb = StringBuilder()
-
     repeat(testCnt) {
-        val n = fs.nextInt()
-        val a = IntArray(n) { fs.nextInt() }
-
-        val dp = LongArray(n + 1) { Long.MAX_VALUE }
-        dp[0] = 0
-
-        for (i in 1..n) {
-            var currentMul = 1L
-
-            for (j in i downTo 1) {
-                if (j < i && a[j-1] > a[j]) break
-
-                currentMul *= a[j-1]
-
-                if (currentMul > 1000000) break
-
-                if (dp[j-1] != Long.MAX_VALUE) {
-                    val totalCost = dp[j-1] + currentMul
-                    dp[i] = min(dp[i], totalCost)
-                }
-            }
-        }
-        sb.append("${dp[n] % 676_767_677}\n")
+        val a = fs.nextInt() % 2
+        val b = fs.nextInt() % 2
+        sb.append("${ if (a == 1 && b == 1) "NO" else "YES" }\n")
     }
     println(sb)
 }

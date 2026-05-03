@@ -105,7 +105,7 @@
 <details>
 <summary>MEDIUM</summary>
 
-<sub>[CheckIfThereIsAValidPathInAGrid](https://leetcode.com/problems/check-if-there-is-avalid-path-in-agrid/).[src](src/problem/leetcode/medium/CheckIfThereIsAValidPathInAGrid.kt)</sub> <sub>[MinimizeHammingDistanceAfterSwapOperations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations/).[src](src/problem/leetcode/medium/MinimizeHammingDistanceAfterSwapOperations.kt)</sub> <sub>[WordsWithinTwoEditsOfDictionary](https://leetcode.com/problems/words-within-two-edits-of-dictionary/).[src](src/problem/leetcode/medium/WordsWithinTwoEditsOfDictionary.kt)</sub>
+<sub>[CheckIfThereIsAValidPathInAGrid](https://leetcode.com/problems/check-if-there-is-avalid-path-in-agrid/).[src](src/problem/leetcode/medium/CheckIfThereIsAValidPathInAGrid.kt)</sub> <sub>[MinimizeHammingDistanceAfterSwapOperations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations/).[src](src/problem/leetcode/medium/MinimizeHammingDistanceAfterSwapOperations.kt)</sub> <sub>[RotatedDigits](https://leetcode.com/problems/rotated-digits/).[src](src/problem/leetcode/medium/RotatedDigits.kt)</sub> <sub>[RotateFunction](https://leetcode.com/problems/rotate-function/).[src](src/problem/leetcode/medium/RotateFunction.kt)</sub> <sub>[WordsWithinTwoEditsOfDictionary](https://leetcode.com/problems/words-within-two-edits-of-dictionary/).[src](src/problem/leetcode/medium/WordsWithinTwoEditsOfDictionary.kt)</sub>
 
 </details>
 

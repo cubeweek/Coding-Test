@@ -182,6 +182,11 @@ def fetch_leetcode_cases(problem_slug):
     test_cases = []
     try:
         driver.get(url)
+        # ⚠️ 404 페이지 체크: 제목에 404나 Page Not Found가 포함되는지 확인
+        if "404" in driver.title or "Page Not Found" in driver.title:
+            print(f"❌ 에러: 404 Not Found. 문제 명(Slug)이 잘못되었습니다: {problem_slug}")
+            return None # 404일 경우 None 반환
+
         wait = WebDriverWait(driver, 15)
         wait.until(EC.presence_of_element_located((By.TAG_NAME, "pre")))
         soup = BeautifulSoup(driver.page_source, 'html.parser')

@@ -3,6 +3,7 @@ import re
 import os
 import json
 import subprocess
+import shutil
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -203,8 +204,33 @@ def fetch_leetcode_cases(problem_slug):
         return test_cases
     finally: driver.quit()
 
+
+def clear_cache():
+    """캐시 폴더 전체 삭제"""
+    if os.path.exists(CACHE_DIR):
+        try:
+            shutil.rmtree(CACHE_DIR)
+            print(f"🧹 캐시 폴더({CACHE_DIR})를 깨끗하게 비웠습니다!")
+        except Exception as e:
+            print(f"❌ 캐시 삭제 실패: {e}")
+    else:
+        print("💨 삭제할 캐시가 없습니다.")
+
+
 def main():
-    if len(sys.argv) < 2: return
+    if len(sys.argv) < 2:
+        print("사용법:")
+        print("  python3 autotest_leetcode.py [파일명]  : 테스트 실행")
+        print("  python3 autotest_leetcode.py clear   : 캐시 삭제")
+        return
+
+    command = sys.argv[1]
+
+    # 캐시 삭제
+    if command == "clear":
+        clear_cache()
+        return
+
     problem_name = sys.argv[1]
     problem_slug = re.sub(r'(?<!^)(?=[A-Z])', '-', problem_name).lower()
 

@@ -7,8 +7,12 @@
     <td>CodeForces</td>
   </tr>
   <tr>
-    <td width="50%"><img src="https://leetcard.jacoblin.cool/cube_week-99?theme=nord&font=Rubik&ext=heatmap" width="100%"></td>
-    <td width="50%"><img src="https://raw.githubusercontent.com/cubeweek/cf-stats/main/output/light_card.svg#gh-dark-mode-only" width="100%" /></td>
+    <td width="50%"><a href="leetcode.com/u/cube_week-99/">
+        <img src="https://leetcard.jacoblin.cool/cube_week-99?theme=nord&font=Rubik&ext=heatmap" width="100%">
+      </a></td>
+    <td width="50%"><a href="https://codeforces.com/profile/cubeweek">
+      <img src="https://raw.githubusercontent.com/cubeweek/cf-stats/main/output/light_card.svg#gh-dark-mode-only" width="100%" />
+    </a></td>
   </tr>
 </table>
 

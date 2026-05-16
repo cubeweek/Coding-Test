@@ -1,14 +1,10 @@
 # Problem-Solving
 ⚠️ **WARNING**: 현재 백준 섭종 예정(https://www.acmicpc.net/board/view/165799)으로 대체 PS를 찾을 동안 문서 및 소스들이 깨지는 등의 현상이 발생할 수 있습니다.<br>
 이 레포는 [백준](https://www.acmicpc.net/) / [LeetCode](https://leetcode.com/)의 문제 풀이 소스와 관련 유틸 프로그램들의 백업 목적으로 생성되었습니다!
-[![Codeforces](https://cf-badge.herokuapp.com/badge/cubeweek)](https://codeforces.com/profile/cubeweek)
 
-| LeetCode                                                                                                                                   | Baekjoon                                                                                    |
-|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| <img src="https://leetcode-badge.vercel.app/api/users/cube-week_99" alt="LeetCode Badge" /> | [![solved.ac](http://mazassumnida.wtf/api/v2/generate_badge?boj=cubeweek)](https://solved.ac/cubeweek) |
+![Codeforces](https://cf-badge.herokuapp.com/badge/cubeweek)
 
-
-
+![LeetCode Stats](https://leetcode-stats-cards.vercel.app/?username=cubeweek-99&theme=dark)
 
 레포 내에 존재하는 백준 / 리트코드 문제와 소스 링크를 [문제].[소스] 형태로 보실 수 있습니다.
 

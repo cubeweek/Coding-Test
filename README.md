@@ -108,7 +108,7 @@
 <details>
 <summary>HARD</summary>
 
-<sub>[MinimumInitialEnergyToFinishTasks](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/).[src](src/problem/leetcode/hard/MinimumInitialEnergyToFinishTasks.kt)</sub>
+<sub>[FindMinimumInRotatedSortedArrayIi](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/).[src](src/problem/leetcode/hard/FindMinimumInRotatedSortedArrayIi.kt)</sub> <sub>[MinimumInitialEnergyToFinishTasks](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/).[src](src/problem/leetcode/hard/MinimumInitialEnergyToFinishTasks.kt)</sub>
 
 </details>
 

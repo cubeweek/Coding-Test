@@ -21,6 +21,27 @@
 
 ---
 <!-- LEETCODE-AUTO-GENERATED:START -->
+<details>
+<summary>EASY</summary>
+
+<sub>[CheckIfArrayIsGood](https://leetcode.com/problems/check-if-array-is-good/).[src](src/problem/leetcode/easy/CheckIfArrayIsGood.kt)</sub> <sub>[PlusOne](https://leetcode.com/problems/plus-one/).[src](src/problem/leetcode/easy/PlusOne.kt)</sub> <sub>[RotateString](https://leetcode.com/problems/rotate-string/).[src](src/problem/leetcode/easy/RotateString.kt)</sub> <sub>[SeparateTheDigitsInAnArray](https://leetcode.com/problems/separate-the-digits-in-an-array/).[src](src/problem/leetcode/easy/SeparateTheDigitsInAnArray.kt)</sub> <sub>[TwoFurthestHousesWithDifferentColors](https://leetcode.com/problems/two-furthest-houses-with-different-colors/).[src](src/problem/leetcode/easy/TwoFurthestHousesWithDifferentColors.kt)</sub>
+
+</details>
+
+<details>
+<summary>MEDIUM</summary>
+
+<sub>[CheckIfThereIsAValidPathInAGrid](https://leetcode.com/problems/check-if-there-is-avalid-path-in-agrid/).[src](src/problem/leetcode/medium/CheckIfThereIsAValidPathInAGrid.kt)</sub> <sub>[FindMinimumInRotatedSortedArray](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/).[src](src/problem/leetcode/medium/FindMinimumInRotatedSortedArray.kt)</sub> <sub>[MinimizeHammingDistanceAfterSwapOperations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations/).[src](src/problem/leetcode/medium/MinimizeHammingDistanceAfterSwapOperations.kt)</sub> <sub>[MinimumMovesToMakeArrayComplementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary/).[src](src/problem/leetcode/medium/MinimumMovesToMakeArrayComplementary.kt)</sub> <sub>[RotatedDigits](https://leetcode.com/problems/rotated-digits/).[src](src/problem/leetcode/medium/RotatedDigits.kt)</sub> <sub>[RotateFunction](https://leetcode.com/problems/rotate-function/).[src](src/problem/leetcode/medium/RotateFunction.kt)</sub> <sub>[RotateImage](https://leetcode.com/problems/rotate-image/).[src](src/problem/leetcode/medium/RotateImage.kt)</sub> <sub>[RotateList](https://leetcode.com/problems/rotate-list/).[src](src/problem/leetcode/medium/RotateList.kt)</sub> <sub>[WordsWithinTwoEditsOfDictionary](https://leetcode.com/problems/words-within-two-edits-of-dictionary/).[src](src/problem/leetcode/medium/WordsWithinTwoEditsOfDictionary.kt)</sub>
+
+</details>
+
+<details>
+<summary>HARD</summary>
+
+<sub>[FindMinimumInRotatedSortedArrayIi](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/).[src](src/problem/leetcode/hard/FindMinimumInRotatedSortedArrayIi.kt)</sub> <sub>[MinimumInitialEnergyToFinishTasks](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/).[src](src/problem/leetcode/hard/MinimumInitialEnergyToFinishTasks.kt)</sub>
+
+</details>
+
 <!-- LEETCODE-AUTO-GENERATED:END -->
 
 ---

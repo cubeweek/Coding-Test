@@ -144,7 +144,7 @@ def build_lc_block(paths):
     override = load_lc_override()
 
     lines = []
-    # EASY / MEDIUM / HARD를 BOJ 티어처럼 최상위로
+    # EASY / MEDIUM / HARD를 최상위로
     for diff in ["easy", "medium", "hard"]:
         if diff not in diffs:
             continue
@@ -153,16 +153,35 @@ def build_lc_block(paths):
         lines.append(f"<summary>{diff.upper()}</summary>")
         lines.append("")
 
+        # 가로 3열 구성을 위한 마크다운 테이블 헤더
+        lines.append("|  |  |  |")
+        lines.append("| :--- | :--- | :--- |")
+
+        # 해당 난이도의 모든 문제 링크 생성
         items = []
         for name in sorted(diffs[diff].keys(), key=lambda s: s.lower()):
             cand = diffs[diff][name]
-            p = cand.get("kt") or cand.get("java")  # kt 우선
+            p = cand.get("kt") or cand.get("java")
 
             slug = override.get(name) or pascal_to_kebab(name)
             url = f"https://leetcode.com/problems/{slug}/"
-            items.append(f"<sub>[{name}]({url}).[src]({p})</sub>")
 
-        lines.append(" ".join(items))
+            # 한 칸에 들어갈 포맷 (글자 크기를 살짝 줄이기 위해 sub 유지 혹은 제거 선택 가능)
+            items.append(f"<sub>[{name}]({url}) . [src]({p})</sub>")
+
+        # 3개씩 쪼개서 테이블 Row 생성
+        row_cells = []
+        for i, item in enumerate(items):
+            row_cells.append(item)
+            # 3개가 모였거나, 마지막 아이템일 때 행 추가
+            if len(row_cells) == 3 or i == len(items) - 1:
+                # 마지막 행에 빈 칸이 있으면 채워주기
+                while len(row_cells) < 3:
+                    row_cells.append("")
+
+                lines.append(f"| {' | '.join(row_cells)} |")
+                row_cells = []
+
         lines.append("")
         lines.append("</details>")
         lines.append("")

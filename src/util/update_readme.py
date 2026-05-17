@@ -153,9 +153,9 @@ def build_lc_block(paths):
         lines.append(f"<summary>{diff.upper()}</summary>")
         lines.append("")
 
-        # 가로 3열 구성을 위한 마크다운 테이블 헤더
-        lines.append("|  |  |  |")
-        lines.append("| :--- | :--- | :--- |")
+        # 가로 2열 구성을 위한 마크다운 테이블 헤더 (빈 줄 현상 방지)
+        lines.append("| 문제 목록 1 | 문제 목록 2 |")
+        lines.append("| :--- | :--- |")
 
         # 해당 난이도의 모든 문제 링크 생성
         items = []
@@ -166,17 +166,17 @@ def build_lc_block(paths):
             slug = override.get(name) or pascal_to_kebab(name)
             url = f"https://leetcode.com/problems/{slug}/"
 
-            # 한 칸에 들어갈 포맷 (글자 크기를 살짝 줄이기 위해 sub 유지 혹은 제거 선택 가능)
-            items.append(f"<sub>[{name}]({url}) . [src]({p})</sub>")
+            # 2열로 넓어졌으므로 <sub> 태그를 제거하여 일반 글자 크기로 깔끔하게 노출
+            items.append(f"[{name}]({url}) · [src]({p})")
 
-        # 3개씩 쪼개서 테이블 Row 생성
+        # 2개씩 쪼개서 테이블 Row 생성
         row_cells = []
         for i, item in enumerate(items):
             row_cells.append(item)
-            # 3개가 모였거나, 마지막 아이템일 때 행 추가
-            if len(row_cells) == 3 or i == len(items) - 1:
+            # 2개가 모였거나, 마지막 아이템일 때 행 추가
+            if len(row_cells) == 2 or i == len(items) - 1:
                 # 마지막 행에 빈 칸이 있으면 채워주기
-                while len(row_cells) < 3:
+                while len(row_cells) < 2:
                     row_cells.append("")
 
                 lines.append(f"| {' | '.join(row_cells)} |")

@@ -153,9 +153,9 @@ def build_lc_block(paths):
         lines.append(f"<summary>{diff.upper()}</summary>")
         lines.append("")
 
-        # 가로 2열 구성을 위한 마크다운 테이블 헤더 (빈 줄 현상 방지)
-        lines.append("| 문제 목록 1 | 문제 목록 2 |")
-        lines.append("| :--- | :--- |")
+        # HTML 테이블 시작 (헤더 없이 바로 본문 시작)
+        lines.append('<table width="100%">')
+        lines.append("  <tbody>")
 
         # 해당 난이도의 모든 문제 링크 생성
         items = []
@@ -166,22 +166,28 @@ def build_lc_block(paths):
             slug = override.get(name) or pascal_to_kebab(name)
             url = f"https://leetcode.com/problems/{slug}/"
 
-            # 2열로 넓어졌으므로 <sub> 태그를 제거하여 일반 글자 크기로 깔끔하게 노출
-            items.append(f"[{name}]({url}) · [src]({p})")
+            # td 칸 안에 들어갈 링크 포맷
+            items.append(f'<a href="{url}">{name}</a> · <a href="{p}">src</a>')
 
-        # 2개씩 쪼개서 테이블 Row 생성
+        # 2개씩 쪼개서 <tr> 행 생성
         row_cells = []
         for i, item in enumerate(items):
             row_cells.append(item)
-            # 2개가 모였거나, 마지막 아이템일 때 행 추가
+
             if len(row_cells) == 2 or i == len(items) - 1:
                 # 마지막 행에 빈 칸이 있으면 채워주기
                 while len(row_cells) < 2:
                     row_cells.append("")
 
-                lines.append(f"| {' | '.join(row_cells)} |")
+                # HTML 행 추가 (양쪽 열의 너비를 50%씩 균등 배분)
+                lines.append("    <tr>")
+                lines.append(f'      <td width="50%">{row_cells[0]}</td>')
+                lines.append(f'      <td width="50%">{row_cells[1]}</td>')
+                lines.append("    </tr>")
                 row_cells = []
 
+        lines.append("  </tbody>")
+        lines.append("</table>")
         lines.append("")
         lines.append("</details>")
         lines.append("")
